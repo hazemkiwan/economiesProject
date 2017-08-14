@@ -1,0 +1,16 @@
+- General Commands:
+
+composer update --no-scripts
+
+php artisan key:generate
+
+php artisan serve
+
+php artisan migrate
+
+- Seeds Commands:
+
+php artisan make:seeder CountriesTableSeeder
+
+php artisan db:seed
+
