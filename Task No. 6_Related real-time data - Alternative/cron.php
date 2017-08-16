@@ -12,15 +12,22 @@ while($row = mysqli_fetch_array($result)) {
 
 	if($new_price <= 0.01){
 		$new_price=1.0;
+	}
 
-	}else{
-		 $query="UPDATE Stocks
+	$query="UPDATE Stocks
       SET 
         Price='$new_price'
       WHERE Name = $row['name']";
 
 	}
-}
+
+	if (mysqli_query($conn, $query)) {
+		echo "Record updated successfully";
+	} else {
+		echo "Error updating record: " . mysqli_error($conn);
+	}
+
+	mysqli_close($conn);}
 
 
 ?>

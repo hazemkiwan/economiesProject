@@ -1,0 +1,4 @@
+schtasks /create /sc minute /mo 5 /tn "TaskName" /tr C:\xampp\php\php.exe -f "C:\xampp\htdocs\economies\task6\cron.php"
+
+
+Please change the files path for php.exe and cron.php.

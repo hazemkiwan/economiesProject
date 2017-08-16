@@ -1,13 +1,13 @@
 <?php
 
 // System Connection.
-$server='localhost';
+$server='localhost:3306';
 // Place the username for the MySQL database here 
-$user='root';
+$user='Hazem';
 // Place the password for the MySQL database here 
 $pass='';
 // Place the name for the MySQL database here 
-$database='economies';
+$database='economies_db';
 // Run the connection here   
 $conn=mysqli_connect($server, $user, $pass, $database);
   if(!$conn)
