@@ -43,12 +43,12 @@
                             <div class="col-md-6">
                            
                                 <select id="countries" class="form-control" name="countries" required>
-                                <option>Select Country</option>
-                                <?php $contries = App\Country::all(); ?>
-                                @foreach($contries as $country)
-                                <option  value="{{$country->id}}">{{$country->name}}</option>
+                                
+                                
+                                <option  value="{{$country->country}}">{{$country->country}}</option>
 
-                                @endforeach
+
+                                
                                 </select>
 
 

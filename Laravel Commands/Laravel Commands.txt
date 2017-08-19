@@ -14,3 +14,4 @@ php artisan make:seeder CountriesTableSeeder
 
 php artisan db:seed
 
+php artisan vendor:publish --provider="Torann\GeoIP\GeoIPServiceProvider" --tag=config

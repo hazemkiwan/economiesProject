@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Country;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -47,6 +48,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -64,11 +66,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = new User;
+        $country = new Country;
+        if(! Country::where('name', $data['countries'])->first()->id ){
+  $country->name = $data['countries'];
+         $country->phone_prefix = 123;
+    
+        $country->save();
+        }
+        
+      
+        $user = new User();
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->phone = $data['phone'];
-        $user->country_id = $data['countries'];
+        $user->country_id = Country::where('name', $data['countries'])->first()->id;
         $user->password = bcrypt($data['password']);
         return $user;
     }
